@@ -1,6 +1,7 @@
 import React from "react";
 
-function PersonalInfo({ func }) {
+function PersonalInfo({ func, data, setData }) {
+  const [newData, setNewData] = React.useState(data);
   function validate() {
     const nameBox = document.getElementById("name");
     const emailBox = document.getElementById("email");
@@ -54,8 +55,21 @@ function PersonalInfo({ func }) {
     }
 
     if (isValied) {
+      setData((prev) => ({
+        ...prev,
+        name: newData.name,
+        email: newData.email,
+        number: newData.number,
+      }));
       func(2);
     }
+  }
+
+  function changeForm(thing) {
+    setNewData((prev) => ({
+      ...prev,
+      [thing]: document.getElementById(thing).value,
+    }));
   }
   return (
     <div className="flex flex-col justify-between pt-10">
@@ -79,6 +93,8 @@ function PersonalInfo({ func }) {
               placeholder="e.g. Stephen King"
               id="name"
               className="border border-gray-300 rounded-md p-2 px-4 w-full focus:outline-blue-800"
+              value={newData.name}
+              onChange={(event) => changeForm("name")}
             />
           </div>
           <div className="flex flex-col gap-1">
@@ -95,6 +111,8 @@ function PersonalInfo({ func }) {
               placeholder="e.g. stephenking@lorem.com"
               id="email"
               className="border border-gray-300 rounded-md p-2 px-4 w-full focus:outline-blue-800"
+              value={newData.email}
+              onChange={(event) => changeForm("email")}
             />
           </div>
           <div className="flex flex-col gap-1">
@@ -111,6 +129,8 @@ function PersonalInfo({ func }) {
               placeholder="e.g. +1 234 567 890"
               id="number"
               className="border border-gray-300 rounded-md p-2 px-4 w-full focus:outline-blue-800"
+              value={newData.number}
+              onChange={(event) => changeForm("number")}
             />
           </div>
         </div>

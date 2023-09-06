@@ -10,6 +10,14 @@ function App() {
     { key: 4, id: 4, name: "SUMMARY", active: false },
   ]);
 
+  const [formData, setFormData] = React.useState({
+    name: "Ali",
+    email: "Reaza",
+    number: "MMD",
+  });
+
+  console.log(formData);
+
   function nextStep(step) {
     setSteps((prev) => {
       let ans = [];
@@ -26,7 +34,7 @@ function App() {
   return (
     <div className="bg-white rounded-xl drop-shadow-xl p-5 pr-20 flex gap-20">
       <Sidebar steps={steps} />
-      <PersonalInfo func={nextStep} />
+      <PersonalInfo func={nextStep} data={formData} setData={setFormData} />
     </div>
   );
 }
