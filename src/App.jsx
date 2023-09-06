@@ -1,6 +1,7 @@
 import React from "react";
 import Sidebar from "./components/Sidebar";
 import PersonalInfo from "./components/PersonalInfo";
+import SelectYourPlan from "./components/SelectYourPlan";
 
 function App() {
   const [steps, setSteps] = React.useState([
@@ -11,14 +12,14 @@ function App() {
   ]);
 
   const [formData, setFormData] = React.useState({
-    name: "Ali",
-    email: "Reaza",
-    number: "MMD",
+    name: "",
+    email: "",
+    number: "",
+    plan: "",
+    planType: "Monthly",
   });
 
-  console.log(formData);
-
-  function nextStep(step) {
+  function selectStep(step) {
     setSteps((prev) => {
       let ans = [];
       for (let i of prev) {
@@ -34,7 +35,10 @@ function App() {
   return (
     <div className="bg-white rounded-xl drop-shadow-xl p-5 pr-20 flex gap-20">
       <Sidebar steps={steps} />
-      <PersonalInfo func={nextStep} data={formData} setData={setFormData} />
+      {steps[0].active && (
+        <PersonalInfo func={selectStep} data={formData} setData={setFormData} />
+      )}
+      {steps[1].active && <SelectYourPlan func={selectStep} />}
     </div>
   );
 }
