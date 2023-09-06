@@ -1,5 +1,6 @@
 import React from "react";
 import Sidebar from "./components/Sidebar";
+import PersonalInfo from "./components/PersonalInfo";
 
 function App() {
   const [steps, setSteps] = React.useState([
@@ -10,8 +11,9 @@ function App() {
   ]);
 
   return (
-    <div className="bg-white rounded-xl drop-shadow-xl p-5 flex">
+    <div className="bg-white rounded-xl drop-shadow-xl p-5 pr-20 flex gap-20">
       <Sidebar steps={steps} />
+      <PersonalInfo />
     </div>
   );
 }
