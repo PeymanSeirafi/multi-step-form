@@ -98,7 +98,14 @@ function SelectYourPlan({ func, data, setData }) {
       <div className="flex justify-between mb-4">
         <button
           className="text-gray-500 font-[500] transition-all duration-200 hover:text-primary"
-          onClick={(event) => func(1)}
+          onClick={(event) => {
+            setData((prev) => ({
+              ...prev,
+              planType: newData.planType,
+              plan: newData.plan,
+            }));
+            func(1);
+          }}
         >
           Go Back
         </button>
