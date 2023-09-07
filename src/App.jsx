@@ -15,7 +15,7 @@ function App() {
     name: "",
     email: "",
     number: "",
-    plan: "",
+    plan: "Arcade",
     planType: "Monthly",
   });
 
@@ -38,7 +38,13 @@ function App() {
       {steps[0].active && (
         <PersonalInfo func={selectStep} data={formData} setData={setFormData} />
       )}
-      {steps[1].active && <SelectYourPlan func={selectStep} />}
+      {steps[1].active && (
+        <SelectYourPlan
+          func={selectStep}
+          data={formData}
+          setData={setFormData}
+        />
+      )}
     </div>
   );
 }

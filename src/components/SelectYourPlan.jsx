@@ -3,7 +3,50 @@ import arcade from "../assets/images/icon-arcade.svg";
 import advanced from "../assets/images/icon-advanced.svg";
 import pro from "../assets/images/icon-pro.svg";
 
-function SelectYourPlan({ func }) {
+function SelectYourPlan({ func, data, setData }) {
+  const [newData, setNewData] = React.useState(data);
+
+  React.useEffect(() => {
+    if (newData.planType === "Yearly") {
+      document.getElementById("planType").checked = true;
+      document.getElementById("monthly").className =
+        "transition-all duration-300 text-gray-400 font-bold";
+      document.getElementById("yearly").className =
+        "transition-all duration-300 text-primary text-lg font-bold";
+    } else {
+      document.getElementById("planType").checked = false;
+      document.getElementById("monthly").className =
+        "transition-all duration-300 text-primary text-lg font-bold";
+      document.getElementById("yearly").className =
+        "transition-all duration-300 text-gray-400 font-bold";
+    }
+  });
+
+  function changeType() {
+    setNewData((prev) => {
+      if (prev.planType === "Monthly") {
+        document.getElementById("monthly").className =
+          "transition-all duration-300 text-gray-400 font-bold";
+        document.getElementById("yearly").className =
+          "transition-all duration-300 text-primary text-lg font-bold";
+        return {
+          ...prev,
+          planType: "Yearly",
+        };
+      } else {
+        document.getElementById("monthly").className =
+          "transition-all duration-300 text-primary text-lg font-bold";
+        document.getElementById("yearly").className =
+          "transition-all duration-300 text-gray-400 font-bold";
+        return {
+          ...prev,
+          planType: "Monthly",
+        };
+      }
+    });
+  }
+
+  console.log(newData);
   return (
     <div className="flex flex-col justify-between pt-10">
       <div>
@@ -26,7 +69,7 @@ function SelectYourPlan({ func }) {
               <img src={advanced} alt="advanced" className="m-4" width={40} />
               <div className="m-4">
                 <h2 className="font-[700] text-primary text-lg">Advanced</h2>
-                <h3 className="font-[400] text-gray-400 text-sm">$12/mo</h3>
+                <h3 className="طfont-[400] text-gray-400 text-sm">$12/mo</h3>
               </div>
             </div>
             <div className="border border-gray-300 rounded-lg w-[134px] h-44 flex flex-col justify-between">
@@ -38,12 +81,17 @@ function SelectYourPlan({ func }) {
             </div>
           </div>
           <div className="bg-slate-100 rounded-lg flex items-center justify-center p-2 my-5 gap-5">
-            <h3 className="font-[700]">Monthly</h3>
-            <label class="relative inline-flex items-center cursor-pointer">
-              <input type="checkbox" value="" class="sr-only peer" />
-              <div class="w-9 h-5 bg-primary peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+            <h3 id="monthly">Monthly</h3>
+            <label className="relative inline-flex items-center cursor-pointer">
+              <input
+                type="checkbox"
+                className="sr-only peer"
+                id="planType"
+                onChange={changeType}
+              />
+              <div className="w-9 h-5 bg-primary peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
             </label>
-            <h3 className="font-[400] text-gray-400">Yearly</h3>
+            <h3 id="yearly">Yearly</h3>
           </div>
         </div>
       </div>
