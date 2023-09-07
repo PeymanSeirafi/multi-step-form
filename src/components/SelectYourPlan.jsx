@@ -22,31 +22,39 @@ function SelectYourPlan({ func, data, setData }) {
     }
   });
 
-  function changeType() {
-    setNewData((prev) => {
-      if (prev.planType === "Monthly") {
-        document.getElementById("monthly").className =
-          "transition-all duration-300 text-gray-400 font-bold";
-        document.getElementById("yearly").className =
-          "transition-all duration-300 text-primary text-lg font-bold";
-        return {
-          ...prev,
-          planType: "Yearly",
-        };
-      } else {
-        document.getElementById("monthly").className =
-          "transition-all duration-300 text-primary text-lg font-bold";
-        document.getElementById("yearly").className =
-          "transition-all duration-300 text-gray-400 font-bold";
-        return {
-          ...prev,
-          planType: "Monthly",
-        };
-      }
-    });
-  }
+  React.useEffect(() => {
+    if (newData.plan === "Arcade") {
+      document.getElementById("arcade").className +=
+        " bg-blue-50 border-2 border-blue-800";
 
-  console.log(newData);
+      document.getElementById("advanced").classList.remove("bg-blue-50");
+      document.getElementById("advanced").classList.remove("border-2");
+      document.getElementById("advanced").classList.remove("border-blue-800");
+      document.getElementById("pro").classList.remove("bg-blue-50");
+      document.getElementById("pro").classList.remove("border-2");
+      document.getElementById("pro").classList.remove("border-blue-800");
+    } else if (newData.plan === "Advanced") {
+      document.getElementById("advanced").className +=
+        " bg-blue-50 border-2 border-blue-800";
+      document.getElementById("arcade").classList.remove("bg-blue-50");
+      document.getElementById("arcade").classList.remove("border-2");
+      document.getElementById("arcade").classList.remove("border-blue-800");
+      document.getElementById("pro").classList.remove("bg-blue-50");
+      document.getElementById("pro").classList.remove("border-2");
+      document.getElementById("pro").classList.remove("border-blue-800");
+    } else {
+      document.getElementById("pro").className +=
+        " bg-blue-50 border-2 border-blue-800";
+
+      document.getElementById("advanced").classList.remove("bg-blue-50");
+      document.getElementById("advanced").classList.remove("border-2");
+      document.getElementById("advanced").classList.remove("border-blue-800");
+      document.getElementById("arcade").classList.remove("bg-blue-50");
+      document.getElementById("arcade").classList.remove("border-2");
+      document.getElementById("arcade").classList.remove("border-blue-800");
+    }
+  });
+
   return (
     <div className="flex flex-col justify-between pt-10">
       <div>
@@ -58,25 +66,66 @@ function SelectYourPlan({ func, data, setData }) {
         </div>
         <div>
           <div className="flex gap-5 mt-10 ">
-            <div className="border border-gray-300 rounded-lg w-[134px] h-445 flex flex-col justify-between">
+            <div
+              className="border border-gray-300 rounded-lg w-[134px] flex flex-col justify-between hover:border-blue-800 hover:border-2 hover:cursor-pointer"
+              id="arcade"
+              onClick={(event) =>
+                setNewData((prev) => ({ ...prev, plan: "Arcade" }))
+              }
+            >
               <img src={arcade} alt="arcade" className="m-4" width={40} />
               <div className="m-4">
-                <h2 className="font-[700] text-primary text-lg">Arcade</h2>
-                <h3 className="font-[400] text-gray-400 text-sm">$9/mo</h3>
+                <h2 className="font-[700] text-primary text-lg mt-4">Arcade</h2>
+                <h3 className="font-[400] text-gray-400 text-sm">
+                  {newData.planType === "Monthly" ? "$9/mo" : "$90/yr"}
+                </h3>
+                {newData.planType === "Yearly" && (
+                  <h3 className="font-[500] text-blue-800/60 text-xs mt-2">
+                    2 months free
+                  </h3>
+                )}
               </div>
             </div>
-            <div className="border border-gray-300 rounded-lg w-[134px] h-44 flex flex-col justify-between">
+            <div
+              className="border border-gray-300 rounded-lg w-[134px] flex flex-col justify-between hover:border-blue-800 hover:border-2 hover:cursor-pointer"
+              id="advanced"
+              onClick={(event) =>
+                setNewData((prev) => ({ ...prev, plan: "Advanced" }))
+              }
+            >
               <img src={advanced} alt="advanced" className="m-4" width={40} />
               <div className="m-4">
-                <h2 className="font-[700] text-primary text-lg">Advanced</h2>
-                <h3 className="طfont-[400] text-gray-400 text-sm">$12/mo</h3>
+                <h2 className="font-[700] text-primary text-lg mt-4">
+                  Advanced
+                </h2>
+                <h3 className="طfont-[400] text-gray-400 text-sm">
+                  {newData.planType === "Monthly" ? "$12/mo" : "$120/yr"}
+                </h3>
+                {newData.planType === "Yearly" && (
+                  <h3 className="font-[500] text-blue-800/60 text-xs mt-2">
+                    2 months free
+                  </h3>
+                )}
               </div>
             </div>
-            <div className="border border-gray-300 rounded-lg w-[134px] h-44 flex flex-col justify-between">
+            <div
+              className="border border-gray-300 rounded-lg w-[134px] flex flex-col justify-between hover:border-blue-800 hover:border-2 hover:cursor-pointer"
+              id="pro"
+              onClick={(event) =>
+                setNewData((prev) => ({ ...prev, plan: "Pro" }))
+              }
+            >
               <img src={pro} alt="pro" className="m-4" width={40} />
               <div className="m-4">
-                <h2 className="font-[700] text-primary text-lg">Pro</h2>
-                <h3 className="font-[400] text-gray-400 text-sm">$15/mo</h3>
+                <h2 className="font-[700] text-primary text-lg mt-4">Pro</h2>
+                <h3 className="font-[400] text-gray-400 text-sm">
+                  {newData.planType === "Monthly" ? "$15/mo" : "$150/yr"}
+                </h3>
+                {newData.planType === "Yearly" && (
+                  <h3 className="font-[500] text-blue-800/60 text-xs mt-2">
+                    2 months free
+                  </h3>
+                )}
               </div>
             </div>
           </div>
@@ -87,7 +136,13 @@ function SelectYourPlan({ func, data, setData }) {
                 type="checkbox"
                 className="sr-only peer"
                 id="planType"
-                onChange={changeType}
+                onChange={(event) =>
+                  setNewData((prev) => ({
+                    ...prev,
+                    planType:
+                      newData.planType === "Monthly" ? "Yearly" : "Monthly",
+                  }))
+                }
               />
               <div className="w-9 h-5 bg-primary peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
             </label>
@@ -109,7 +164,17 @@ function SelectYourPlan({ func, data, setData }) {
         >
           Go Back
         </button>
-        <button className="bg-primary text-white px-7 py-3 rounded-md text-sm font-[500] transition-all duration-200 hover:bg-blue-900">
+        <button
+          className="bg-primary text-white px-7 py-3 rounded-md text-sm font-[500] transition-all duration-200 hover:bg-blue-900"
+          onClick={(event) => {
+            setData((prev) => ({
+              ...prev,
+              planType: newData.planType,
+              plan: newData.plan,
+            }));
+            func(3);
+          }}
+        >
           Next Step
         </button>
       </div>
