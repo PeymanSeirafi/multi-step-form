@@ -18,7 +18,12 @@ function App() {
     number: "",
     plan: "Arcade",
     planType: "Monthly",
+    online: false,
+    storage: false,
+    profile: false,
   });
+
+  console.log(formData);
 
   function selectStep(step) {
     setSteps((prev) => {

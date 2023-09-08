@@ -3,6 +3,13 @@ import React from "react";
 function AddOnes({ func, data, setData }) {
   const [newData, setNewData] = React.useState(data);
 
+  function changeAddOnes(event) {
+    setNewData((prev) => ({
+      ...prev,
+      [event.target.name]: event.target.checked,
+    }));
+  }
+
   return (
     <div className="flex flex-col justify-between pt-10">
       <div>
@@ -19,6 +26,9 @@ function AddOnes({ func, data, setData }) {
                 <input
                   type="checkbox"
                   className="h-6 w-6 items-center peer appearance-none bg-white border checked:border-none border-slate-800 checked:bg-purplish rounded hover:cursor-pointer"
+                  name="online"
+                  onChange={changeAddOnes}
+                  checked={newData.online}
                 />
                 <svg
                   className="w-5 absolute left-[2px] top-[2px] justify-center items-center hidden peer-checked:flex"
@@ -26,20 +36,20 @@ function AddOnes({ func, data, setData }) {
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                   <g
                     id="SVGRepo_tracerCarrier"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   ></g>
                   <g id="SVGRepo_iconCarrier">
                     {" "}
                     <path
                       d="M4.89163 13.2687L9.16582 17.5427L18.7085 8"
                       stroke="#ffffff"
-                      stroke-width={2.5}
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth={2.5}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     ></path>{" "}
                   </g>
                 </svg>
@@ -59,6 +69,9 @@ function AddOnes({ func, data, setData }) {
                 <input
                   type="checkbox"
                   className="h-6 w-6 peer items-center appearance-none bg-white border checked:border-none border-slate-800 checked:bg-purplish rounded hover:cursor-pointer"
+                  name="storage"
+                  onChange={changeAddOnes}
+                  checked={newData.storage}
                 />
                 <svg
                   className="w-5 absolute left-[2px] top-[2px] justify-center items-center hidden peer-checked:flex"
@@ -66,20 +79,20 @@ function AddOnes({ func, data, setData }) {
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                   <g
                     id="SVGRepo_tracerCarrier"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   ></g>
                   <g id="SVGRepo_iconCarrier">
                     {" "}
                     <path
                       d="M4.89163 13.2687L9.16582 17.5427L18.7085 8"
                       stroke="#ffffff"
-                      stroke-width={2.5}
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth={2.5}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     ></path>{" "}
                   </g>
                 </svg>
@@ -99,6 +112,9 @@ function AddOnes({ func, data, setData }) {
                 <input
                   type="checkbox"
                   className="h-6 w-6 peer items-center appearance-none bg-white border checked:border-none border-slate-800 checked:bg-purplish rounded hover:cursor-pointer"
+                  name="profile"
+                  onChange={changeAddOnes}
+                  checked={newData.profile}
                 />
                 <svg
                   className="w-5 absolute left-[2px] top-[2px] justify-center items-center hidden peer-checked:flex"
@@ -106,20 +122,20 @@ function AddOnes({ func, data, setData }) {
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                   <g
                     id="SVGRepo_tracerCarrier"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   ></g>
                   <g id="SVGRepo_iconCarrier">
                     {" "}
                     <path
                       d="M4.89163 13.2687L9.16582 17.5427L18.7085 8"
                       stroke="#ffffff"
-                      stroke-width={2.5}
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth={2.5}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     ></path>{" "}
                   </g>
                 </svg>
@@ -143,8 +159,9 @@ function AddOnes({ func, data, setData }) {
           onClick={(event) => {
             setData((prev) => ({
               ...prev,
-              planType: newData.planType,
-              plan: newData.plan,
+              online: newData.online,
+              storage: newData.storage,
+              profile: newData.profile,
             }));
             func(2);
           }}
@@ -156,8 +173,9 @@ function AddOnes({ func, data, setData }) {
           onClick={(event) => {
             setData((prev) => ({
               ...prev,
-              planType: newData.planType,
-              plan: newData.plan,
+              online: newData.online,
+              storage: newData.storage,
+              profile: newData.profile,
             }));
             func(4);
           }}
