@@ -10,15 +10,15 @@ function SelectYourPlan({ func, data, setData }) {
     if (newData.planType === "Yearly") {
       document.getElementById("planType").checked = true;
       document.getElementById("monthly").className =
-        "transition-all duration-300 text-gray-400 font-bold";
+        "transition-all duration-500 text-gray-400 font-bold";
       document.getElementById("yearly").className =
-        "transition-all duration-300 text-primary text-lg font-bold";
+        "transition-all duration-500 text-primary text-lg font-bold";
     } else {
       document.getElementById("planType").checked = false;
       document.getElementById("monthly").className =
-        "transition-all duration-300 text-primary text-lg font-bold";
+        "transition-all duration-500 text-primary text-lg font-bold";
       document.getElementById("yearly").className =
-        "transition-all duration-300 text-gray-400 font-bold";
+        "transition-all duration-500 text-gray-400 font-bold";
     }
   });
 
@@ -67,7 +67,7 @@ function SelectYourPlan({ func, data, setData }) {
         <div>
           <div className="flex gap-5 mt-10 ">
             <div
-              className="border border-gray-300 rounded-lg w-[134px] flex flex-col justify-between hover:border-blue-800 hover:border-2 hover:cursor-pointer"
+              className="border border-gray-500 rounded-lg w-[134px] flex flex-col justify-between hover:border-gray-500 hover:border-2 hover:cursor-pointer"
               id="arcade"
               onClick={(event) =>
                 setNewData((prev) => ({ ...prev, plan: "Arcade" }))
@@ -87,7 +87,7 @@ function SelectYourPlan({ func, data, setData }) {
               </div>
             </div>
             <div
-              className="border border-gray-300 rounded-lg w-[134px] flex flex-col justify-between hover:border-blue-800 hover:border-2 hover:cursor-pointer"
+              className="border border-gray-500 rounded-lg w-[134px] flex flex-col justify-between hover:border-gray-500 hover:border-2 hover:cursor-pointer"
               id="advanced"
               onClick={(event) =>
                 setNewData((prev) => ({ ...prev, plan: "Advanced" }))
@@ -109,7 +109,7 @@ function SelectYourPlan({ func, data, setData }) {
               </div>
             </div>
             <div
-              className="border border-gray-300 rounded-lg w-[134px] flex flex-col justify-between hover:border-blue-800 hover:border-2 hover:cursor-pointer"
+              className="border border-gray-500 rounded-lg w-[134px] flex flex-col justify-between hover:border-gray-500 hover:border-2 hover:cursor-pointer"
               id="pro"
               onClick={(event) =>
                 setNewData((prev) => ({ ...prev, plan: "Pro" }))
@@ -144,7 +144,7 @@ function SelectYourPlan({ func, data, setData }) {
                   }))
                 }
               />
-              <div className="w-9 h-5 bg-primary peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+              <div className="w-9 h-5 bg-primary peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-500 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
             </label>
             <h3 id="yearly">Yearly</h3>
           </div>
