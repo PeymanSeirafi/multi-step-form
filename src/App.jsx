@@ -2,6 +2,7 @@ import React from "react";
 import Sidebar from "./components/Sidebar";
 import PersonalInfo from "./components/PersonalInfo";
 import SelectYourPlan from "./components/SelectYourPlan";
+import AddOnes from "./components/AddOnes";
 
 function App() {
   const [steps, setSteps] = React.useState([
@@ -33,7 +34,7 @@ function App() {
     });
   }
   return (
-    <div className="bg-white rounded-xl drop-shadow-xl p-5 pr-20 flex gap-20">
+    <div className="bg-white rounded-xl drop-shadow-xl p-5 pr-20 flex gap-20 mx-5">
       <Sidebar steps={steps} />
       {steps[0].active && (
         <PersonalInfo func={selectStep} data={formData} setData={setFormData} />
@@ -44,6 +45,9 @@ function App() {
           data={formData}
           setData={setFormData}
         />
+      )}
+      {steps[2].active && (
+        <AddOnes func={selectStep} data={formData} setData={setFormData} />
       )}
     </div>
   );
