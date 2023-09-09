@@ -24,34 +24,28 @@ function SelectYourPlan({ func, data, setData }) {
 
   React.useEffect(() => {
     if (newData.plan === "Arcade") {
-      document.getElementById("arcade").className +=
-        " bg-blue-50 border-2 border-blue-800";
+      document.getElementById("arcade").className =
+        "outline bg-blue-50 outline-blue-800 rounded-lg w-[134px] flex flex-col justify-between hover:outline hover:outline-blue-800 hover:border-0 hover:cursor-pointer";
 
       document.getElementById("advanced").classList.remove("bg-blue-50");
-      document.getElementById("advanced").classList.remove("border-2");
-      document.getElementById("advanced").classList.remove("border-blue-800");
+      document.getElementById("advanced").classList.add("outline-gray-300");
       document.getElementById("pro").classList.remove("bg-blue-50");
-      document.getElementById("pro").classList.remove("border-2");
-      document.getElementById("pro").classList.remove("border-blue-800");
+      document.getElementById("pro").classList.add("outline-gray-300");
     } else if (newData.plan === "Advanced") {
-      document.getElementById("advanced").className +=
-        " bg-blue-50 border-2 border-blue-800";
+      document.getElementById("advanced").className =
+        "outline bg-blue-50 outline-blue-800 rounded-lg w-[134px] flex flex-col justify-between hover:outline hover:outline-blue-800 hover:border-0 hover:cursor-pointer";
       document.getElementById("arcade").classList.remove("bg-blue-50");
-      document.getElementById("arcade").classList.remove("border-2");
-      document.getElementById("arcade").classList.remove("border-blue-800");
+      document.getElementById("arcade").classList.add("outline-gray-300");
       document.getElementById("pro").classList.remove("bg-blue-50");
-      document.getElementById("pro").classList.remove("border-2");
-      document.getElementById("pro").classList.remove("border-blue-800");
+      document.getElementById("pro").classList.add("outline-gray-300");
     } else {
-      document.getElementById("pro").className +=
-        " bg-blue-50 border-2 border-blue-800";
+      document.getElementById("pro").className =
+        "outline bg-blue-50 outline-blue-800 rounded-lg w-[134px] flex flex-col justify-between hover:outline hover:outline-blue-800 hover:border-0 hover:cursor-pointer";
 
       document.getElementById("advanced").classList.remove("bg-blue-50");
-      document.getElementById("advanced").classList.remove("border-2");
-      document.getElementById("advanced").classList.remove("border-blue-800");
+      document.getElementById("advanced").classList.add("outline-gray-300");
       document.getElementById("arcade").classList.remove("bg-blue-50");
-      document.getElementById("arcade").classList.remove("border-2");
-      document.getElementById("arcade").classList.remove("border-blue-800");
+      document.getElementById("arcade").classList.add("outline-gray-300");
     }
   });
 
@@ -67,7 +61,7 @@ function SelectYourPlan({ func, data, setData }) {
         <div>
           <div className="flex gap-5 mt-10 ">
             <div
-              className="border border-gray-500 rounded-lg w-[134px] flex flex-col justify-between hover:border-gray-500 hover:border-2 hover:cursor-pointer"
+              className="outline outline-gray-300 rounded-lg w-[134px] flex flex-col justify-between hover:outline hover:outline-blue-800 hover:border-0 hover:cursor-pointer"
               id="arcade"
               onClick={(event) =>
                 setNewData((prev) => ({ ...prev, plan: "Arcade" }))
@@ -87,7 +81,7 @@ function SelectYourPlan({ func, data, setData }) {
               </div>
             </div>
             <div
-              className="border border-gray-500 rounded-lg w-[134px] flex flex-col justify-between hover:border-gray-500 hover:border-2 hover:cursor-pointer"
+              className="outline outline-gray-300 rounded-lg w-[134px] flex flex-col justify-between hover:outline hover:outline-blue-800 hover:border-0 hover:cursor-pointer"
               id="advanced"
               onClick={(event) =>
                 setNewData((prev) => ({ ...prev, plan: "Advanced" }))
@@ -109,7 +103,7 @@ function SelectYourPlan({ func, data, setData }) {
               </div>
             </div>
             <div
-              className="border border-gray-500 rounded-lg w-[134px] flex flex-col justify-between hover:border-gray-500 hover:border-2 hover:cursor-pointer"
+              className="outline outline-gray-300 rounded-lg w-[134px] flex flex-col justify-between hover:outline hover:outline-blue-800 hover:border-0 hover:cursor-pointer"
               id="pro"
               onClick={(event) =>
                 setNewData((prev) => ({ ...prev, plan: "Pro" }))
@@ -144,7 +138,7 @@ function SelectYourPlan({ func, data, setData }) {
                   }))
                 }
               />
-              <div className="w-9 h-5 bg-primary peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-500 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+              <div className="w-9 h-5 bg-primary peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-blue-800 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
             </label>
             <h3 id="yearly">Yearly</h3>
           </div>

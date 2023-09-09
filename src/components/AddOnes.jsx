@@ -10,6 +10,30 @@ function AddOnes({ func, data, setData }) {
     }));
   }
 
+  React.useEffect(() => {
+    if (newData.online) {
+      document.getElementById("online").className =
+        "flex justify-between bg-blue-50 items-center rounded-lg px-6 py-5 hover:cursor-pointer outline outline-blue-800";
+    } else {
+      document.getElementById("online").className =
+        "flex justify-between items-center outline outline-gray-300 rounded-lg px-6 py-5 cursor-pointer hover:outline-blue-800";
+    }
+    if (newData.storage) {
+      document.getElementById("storage").className =
+        "flex justify-between bg-blue-50 items-center rounded-lg px-6 py-5 hover:cursor-pointer outline outline-blue-800";
+    } else {
+      document.getElementById("storage").className =
+        "flex justify-between items-center outline outline-gray-300 rounded-lg px-6 py-5 cursor-pointer hover:outline-blue-800";
+    }
+    if (newData.profile) {
+      document.getElementById("profile").className =
+        "flex justify-between bg-blue-50 items-center rounded-lg px-6 py-5 hover:cursor-pointer outline outline-blue-800";
+    } else {
+      document.getElementById("profile").className =
+        "flex justify-between items-center outline outline-gray-300 rounded-lg px-6 py-5 cursor-pointer hover:outline-blue-800";
+    }
+  });
+
   return (
     <div className="flex flex-col justify-between pt-10">
       <div>
@@ -20,7 +44,10 @@ function AddOnes({ func, data, setData }) {
           </h4>
         </div>
         <div className="flex flex-col gap-4 mt-10">
-          <label className="flex justify-between items-center border border-gray-300 rounded-lg px-6 py-5 cursor-pointer">
+          <label
+            className="flex justify-between items-center outline outline-gray-300 rounded-lg px-6 py-5 cursor-pointer hover:outline-blue-800"
+            id="online"
+          >
             <div className="flex gap-6 items-center mr-[119px]">
               <div className="flex relative">
                 <input
@@ -61,9 +88,12 @@ function AddOnes({ func, data, setData }) {
                 </h4>
               </div>
             </div>
-            <h3 className="text-purplish text-sm">+$2/mo</h3>
+            <h3 className="text-purplish text-sm">+$1/mo</h3>
           </label>
-          <label className="flex justify-between items-center border border-gray-300 rounded-lg px-6 py-5 cursor-pointer">
+          <label
+            className="flex justify-between items-center outline outline-gray-300 rounded-lg px-6 py-5 cursor-pointer hover:outline-blue-800"
+            id="storage"
+          >
             <div className="flex gap-6 items-center mr-[119px]">
               <div className="flex relative">
                 <input
@@ -106,7 +136,10 @@ function AddOnes({ func, data, setData }) {
             </div>
             <h3 className="text-purplish text-sm">+$2/mo</h3>
           </label>
-          <label className="flex justify-between items-center border border-gray-300 rounded-lg px-6 py-5 cursor-pointer">
+          <label
+            className="flex justify-between items-center outline outline-gray-300 rounded-lg px-6 py-5 cursor-pointer hover:outline-blue-800"
+            id="profile"
+          >
             <div className="flex gap-6 items-center mr-[119px]">
               <div className="flex relative">
                 <input
