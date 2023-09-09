@@ -88,7 +88,9 @@ function AddOnes({ func, data, setData }) {
                 </h4>
               </div>
             </div>
-            <h3 className="text-purplish text-sm">+$1/mo</h3>
+            <h3 className="text-purplish text-sm">
+              {newData.planType === "Monthly" ? "+$1/mo" : "+10/yr"}
+            </h3>
           </label>
           <label
             className="flex justify-between items-center outline outline-gray-300 rounded-lg px-6 py-5 cursor-pointer hover:outline-blue-800"
@@ -134,7 +136,9 @@ function AddOnes({ func, data, setData }) {
                 </h4>
               </div>
             </div>
-            <h3 className="text-purplish text-sm">+$2/mo</h3>
+            <h3 className="text-purplish text-sm">
+              {newData.planType === "Monthly" ? "+$2/mo" : "+20/yr"}
+            </h3>
           </label>
           <label
             className="flex justify-between items-center outline outline-gray-300 rounded-lg px-6 py-5 cursor-pointer hover:outline-blue-800"
@@ -182,7 +186,9 @@ function AddOnes({ func, data, setData }) {
                 </h4>
               </div>
             </div>
-            <h3 className="text-purplish text-sm">+$2/mo</h3>
+            <h3 className="text-purplish text-sm">
+              {newData.planType === "Monthly" ? "+$2/mo" : "+20/yr"}
+            </h3>
           </label>
         </div>
       </div>
