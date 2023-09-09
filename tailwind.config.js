@@ -8,6 +8,7 @@ module.exports = {
         pastel: "#adbeff",
         purplish: "#473dff",
         strawberry: "#ed3548",
+        lightGray: "#f8f9ff",
       },
     },
   },

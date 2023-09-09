@@ -123,7 +123,7 @@ function SelectYourPlan({ func, data, setData }) {
               </div>
             </div>
           </div>
-          <div className="bg-slate-100 rounded-lg flex items-center justify-center p-2 my-5 gap-5">
+          <div className="bg-lightGray rounded-lg flex items-center justify-center p-2 my-5 gap-5">
             <h3 id="monthly">Monthly</h3>
             <label className="relative inline-flex items-center cursor-pointer">
               <input
