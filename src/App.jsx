@@ -3,6 +3,7 @@ import Sidebar from "./components/Sidebar";
 import PersonalInfo from "./components/PersonalInfo";
 import SelectYourPlan from "./components/SelectYourPlan";
 import AddOnes from "./components/AddOnes";
+import Summary from "./components/Summary";
 
 function App() {
   const [steps, setSteps] = React.useState([
@@ -54,6 +55,7 @@ function App() {
       {steps[2].active && (
         <AddOnes func={selectStep} data={formData} setData={setFormData} />
       )}
+      {steps[3].active && <Summary func={selectStep} data={formData} />}
     </div>
   );
 }
