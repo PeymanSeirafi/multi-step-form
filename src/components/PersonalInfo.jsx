@@ -74,11 +74,13 @@ function PersonalInfo({ func, data, setData }) {
   return (
     <div className="flex flex-col justify-between pt-10">
       <div>
-        <h1 className="text-primary font-[700] text-4xl">Personal Info</h1>
-        <h4 className="text-gray-400 mt-2">
+        <h1 className="text-primary font-[700] text-3xl lg:text-4xl">
+          Personal Info
+        </h1>
+        <h4 className="text-gray-400 mt-2 text-sm lg:text-base">
           Please provide your name, email address, and phone number.
         </h4>
-        <div className="mt-10 text-[#355379] flex flex-col gap-6 font-[500]">
+        <div className="mt-5 lg:mt-10 text-[#355379] flex flex-col gap-6 font-[500]">
           <div className="flex flex-col gap-1">
             <div className="flex justify-between">
               <label htmlFor="name" className="text-sm">
@@ -135,7 +137,7 @@ function PersonalInfo({ func, data, setData }) {
           </div>
         </div>
       </div>
-      <div className="flex justify-end mb-4">
+      <div className="flex justify-end mb-4 mt-5 md:mt-3">
         <button
           className="bg-primary text-white px-7 py-3 rounded-md text-sm font-[500] transition-all duration-200 hover:bg-blue-900"
           onClick={validate}

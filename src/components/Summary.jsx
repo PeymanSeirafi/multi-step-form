@@ -37,12 +37,14 @@ function Summary({ func, data }) {
         <div className="flex flex-col justify-between pt-10 h-full">
           <div>
             <div>
-              <h1 className="text-primary font-[700] text-4xl">Finishing up</h1>
-              <h4 className="text-gray-400 mt-2">
+              <h1 className="text-primary font-[700] text-3xl lg:text-4xl">
+                Finishing up
+              </h1>
+              <h4 className="text-gray-400 mt-2 text-sm lg:text-base">
                 Double-check everything looks OK before confirming.
               </h4>
             </div>
-            <div className="flex flex-col gap-4 mt-10">
+            <div className="flex flex-col gap-4 mt-5 lg:mt-10">
               <div className="bg-lightGray p-5 flex flex-col gap-3 rounded-xl">
                 <div className="flex justify-between items-center">
                   <div>
@@ -106,7 +108,7 @@ function Summary({ func, data }) {
               </div>
             </div>
           </div>
-          <div className="flex justify-between mb-4">
+          <div className="flex justify-between mb-4 mt-10 md:mt-3">
             <button
               className="text-gray-500 font-[500] transition-all duration-200 hover:text-primary"
               onClick={(event) => {

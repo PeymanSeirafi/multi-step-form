@@ -40,7 +40,7 @@ function App() {
     });
   }
   return (
-    <div className="bg-white rounded-xl drop-shadow-xl p-5 pr-20 flex gap-20 mx-5">
+    <div className="h-auto min-[500px]:w-auto bg-white rounded-xl drop-shadow-xl p-0 min-[500px]:p-10 md:p-5 pr-0 md:pr-10 lg:pr-20 flex flex-col min-[500px]:flex-row gap-10 lg:gap-20 min-[500px]:mx-5">
       <Sidebar steps={steps} />
       {steps[0].active && (
         <PersonalInfo func={selectStep} data={formData} setData={setFormData} />

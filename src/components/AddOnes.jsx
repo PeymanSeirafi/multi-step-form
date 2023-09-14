@@ -38,17 +38,19 @@ function AddOnes({ func, data, setData }) {
     <div className="flex flex-col justify-between pt-10">
       <div>
         <div>
-          <h1 className="text-primary font-[700] text-4xl">Pick add-ons</h1>
-          <h4 className="text-gray-400 mt-2">
+          <h1 className="text-primary font-[700] text-3xl lg:text-4xl">
+            Pick add-ons
+          </h1>
+          <h4 className="text-gray-400 mt-2 text-sm lg:text-base">
             Add-ons help enhance your gaming experience.
           </h4>
         </div>
-        <div className="flex flex-col gap-4 mt-10">
+        <div className="flex flex-col gap-4 mt-5 lg:mt-10">
           <label
             className="flex justify-between items-center outline outline-gray-300 rounded-lg px-6 py-5 cursor-pointer hover:outline-blue-800"
             id="online"
           >
-            <div className="flex gap-6 items-center mr-[119px]">
+            <div className="flex gap-6 items-center lg:mr-[119px]">
               <div className="flex relative">
                 <input
                   type="checkbox"
@@ -82,13 +84,15 @@ function AddOnes({ func, data, setData }) {
                 </svg>
               </div>
               <div>
-                <h2 className="text-primary font-[500]">Online service</h2>
-                <h4 className="text-gray-400 text-sm">
+                <h2 className="text-primary font-[500] text-sm lg:text-base">
+                  Online service
+                </h2>
+                <h4 className="text-gray-400 text-xs lg:text-sm">
                   Access to multiplayer games
                 </h4>
               </div>
             </div>
-            <h3 className="text-purplish text-sm">
+            <h3 className="text-purplish text-xs lg:text-sm">
               {newData.planType === "Monthly" ? "+$1/mo" : "+10/yr"}
             </h3>
           </label>
@@ -96,7 +100,7 @@ function AddOnes({ func, data, setData }) {
             className="flex justify-between items-center outline outline-gray-300 rounded-lg px-6 py-5 cursor-pointer hover:outline-blue-800"
             id="storage"
           >
-            <div className="flex gap-6 items-center mr-[119px]">
+            <div className="flex gap-6 items-center lg:mr-[119px]">
               <div className="flex relative">
                 <input
                   type="checkbox"
@@ -130,13 +134,15 @@ function AddOnes({ func, data, setData }) {
                 </svg>
               </div>
               <div>
-                <h2 className="text-primary font-[500]">Larger storage</h2>
-                <h4 className="text-gray-400 text-sm">
+                <h2 className="text-primary font-[500] text-sm lg:text-base">
+                  Larger storage
+                </h2>
+                <h4 className="text-gray-400 text-xs lg:text-sm">
                   Extra 1TB of cloud save
                 </h4>
               </div>
             </div>
-            <h3 className="text-purplish text-sm">
+            <h3 className="text-purplish text-xs lg:text-sm">
               {newData.planType === "Monthly" ? "+$2/mo" : "+20/yr"}
             </h3>
           </label>
@@ -144,7 +150,7 @@ function AddOnes({ func, data, setData }) {
             className="flex justify-between items-center outline outline-gray-300 rounded-lg px-6 py-5 cursor-pointer hover:outline-blue-800"
             id="profile"
           >
-            <div className="flex gap-6 items-center mr-[119px]">
+            <div className="flex gap-6 items-center lg:mr-[119px]">
               <div className="flex relative">
                 <input
                   type="checkbox"
@@ -178,21 +184,21 @@ function AddOnes({ func, data, setData }) {
                 </svg>
               </div>
               <div>
-                <h2 className="text-primary font-[500]">
+                <h2 className="text-primary font-[500] text-sm lg:text-base">
                   Customizable Profile
                 </h2>
-                <h4 className="text-gray-400 text-sm">
+                <h4 className="text-gray-400 text-xs lg:text-sm">
                   Custom theme on your profile
                 </h4>
               </div>
             </div>
-            <h3 className="text-purplish text-sm">
+            <h3 className="text-purplish text-xs lg:text-sm">
               {newData.planType === "Monthly" ? "+$2/mo" : "+20/yr"}
             </h3>
           </label>
         </div>
       </div>
-      <div className="flex justify-between mb-4">
+      <div className="flex justify-between mb-4 mt-5 md:mt-3">
         <button
           className="text-gray-500 font-[500] transition-all duration-200 hover:text-primary"
           onClick={(event) => {
