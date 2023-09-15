@@ -72,72 +72,82 @@ function PersonalInfo({ func, data, setData }) {
     }));
   }
   return (
-    <div className="flex flex-col justify-between pt-10">
-      <div>
-        <h1 className="text-primary font-[700] text-3xl lg:text-4xl">
-          Personal Info
-        </h1>
-        <h4 className="text-gray-400 mt-2 text-sm lg:text-base">
-          Please provide your name, email address, and phone number.
-        </h4>
-        <div className="mt-5 lg:mt-10 text-[#355379] flex flex-col gap-6 font-[500]">
-          <div className="flex flex-col gap-1">
-            <div className="flex justify-between">
-              <label htmlFor="name" className="text-sm">
-                Name
-              </label>
-              <div
-                className="text-sm text-strawberry font-[700]"
-                id="nameError"
-              ></div>
+    <>
+      <div className="flex flex-col justify-between max-[500px]:py-2 pt-0 min-[500px]:pt-10">
+        <div>
+          <h1 className="text-primary font-[700] text-[20pt] min-[500px]:text-3xl lg:text-4xl">
+            Personal Info
+          </h1>
+          <h4 className="text-gray-400 mt-2 text-sm lg:text-base">
+            Please provide your name, email address, and phone number.
+          </h4>
+          <div className="mt-5 lg:mt-10 text-[#355379] flex flex-col gap-6 font-[500]">
+            <div className="flex flex-col gap-1">
+              <div className="flex justify-between">
+                <label htmlFor="name" className="text-sm">
+                  Name
+                </label>
+                <div
+                  className="text-sm text-strawberry font-[700]"
+                  id="nameError"
+                ></div>
+              </div>
+              <input
+                placeholder="e.g. Stephen King"
+                id="name"
+                className="border border-gray-300 rounded-md p-2 px-4 w-full focus:outline-blue-800"
+                value={newData.name}
+                onChange={(event) => changeForm("name")}
+              />
             </div>
-            <input
-              placeholder="e.g. Stephen King"
-              id="name"
-              className="border border-gray-300 rounded-md p-2 px-4 w-full focus:outline-blue-800"
-              value={newData.name}
-              onChange={(event) => changeForm("name")}
-            />
-          </div>
-          <div className="flex flex-col gap-1">
-            <div className="flex justify-between">
-              <label htmlFor="email" className="text-sm">
-                Email Address
-              </label>
-              <div
-                className="text-sm text-strawberry font-[700]"
-                id="emailError"
-              ></div>
+            <div className="flex flex-col gap-1">
+              <div className="flex justify-between">
+                <label htmlFor="email" className="text-sm">
+                  Email Address
+                </label>
+                <div
+                  className="text-sm text-strawberry font-[700]"
+                  id="emailError"
+                ></div>
+              </div>
+              <input
+                placeholder="e.g. stephenking@lorem.com"
+                id="email"
+                className="border border-gray-300 rounded-md p-2 px-4 w-full focus:outline-blue-800"
+                value={newData.email}
+                onChange={(event) => changeForm("email")}
+              />
             </div>
-            <input
-              placeholder="e.g. stephenking@lorem.com"
-              id="email"
-              className="border border-gray-300 rounded-md p-2 px-4 w-full focus:outline-blue-800"
-              value={newData.email}
-              onChange={(event) => changeForm("email")}
-            />
-          </div>
-          <div className="flex flex-col gap-1">
-            <div className="flex justify-between">
-              <label htmlFor="number" className="text-sm">
-                Phone Number
-              </label>
-              <div
-                className="text-sm text-strawberry font-[700]"
-                id="numberError"
-              ></div>
+            <div className="flex flex-col gap-1">
+              <div className="flex justify-between">
+                <label htmlFor="number" className="text-sm">
+                  Phone Number
+                </label>
+                <div
+                  className="text-sm text-strawberry font-[700]"
+                  id="numberError"
+                ></div>
+              </div>
+              <input
+                placeholder="e.g. +1 234 567 890"
+                id="number"
+                className="border border-gray-300 rounded-md p-2 px-4 w-full focus:outline-blue-800"
+                value={newData.number}
+                onChange={(event) => changeForm("number")}
+              />
             </div>
-            <input
-              placeholder="e.g. +1 234 567 890"
-              id="number"
-              className="border border-gray-300 rounded-md p-2 px-4 w-full focus:outline-blue-800"
-              value={newData.number}
-              onChange={(event) => changeForm("number")}
-            />
           </div>
         </div>
+        <div className="flex justify-end mb-4 mt-5 md:mt-3 max-[500px]:hidden">
+          <button
+            className="bg-primary text-white px-7 py-3 rounded-md text-sm font-[500] transition-all duration-200 hover:bg-blue-900"
+            onClick={validate}
+          >
+            Next Step
+          </button>
+        </div>
       </div>
-      <div className="flex justify-end mb-4 mt-5 md:mt-3">
+      <div className="fixed bottom-0 left-0 bg-white w-full flex justify-end p-4 min-[500px]:hidden">
         <button
           className="bg-primary text-white px-7 py-3 rounded-md text-sm font-[500] transition-all duration-200 hover:bg-blue-900"
           onClick={validate}
@@ -145,7 +155,7 @@ function PersonalInfo({ func, data, setData }) {
           Next Step
         </button>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -4,6 +4,7 @@ import PersonalInfo from "./components/PersonalInfo";
 import SelectYourPlan from "./components/SelectYourPlan";
 import AddOnes from "./components/AddOnes";
 import Summary from "./components/Summary";
+import MobileSidebar from "./components/MobileSidebar";
 
 function App() {
   const [steps, setSteps] = React.useState([
@@ -24,8 +25,6 @@ function App() {
     profile: false,
   });
 
-  console.log(formData);
-
   function selectStep(step) {
     setSteps((prev) => {
       let ans = [];
@@ -40,22 +39,30 @@ function App() {
     });
   }
   return (
-    <div className="h-auto min-[500px]:w-auto bg-white rounded-xl drop-shadow-xl p-0 min-[500px]:p-10 md:p-5 pr-0 md:pr-10 lg:pr-20 flex flex-col min-[500px]:flex-row gap-10 lg:gap-20 min-[500px]:mx-5">
-      <Sidebar steps={steps} />
-      {steps[0].active && (
-        <PersonalInfo func={selectStep} data={formData} setData={setFormData} />
-      )}
-      {steps[1].active && (
-        <SelectYourPlan
-          func={selectStep}
-          data={formData}
-          setData={setFormData}
-        />
-      )}
-      {steps[2].active && (
-        <AddOnes func={selectStep} data={formData} setData={setFormData} />
-      )}
-      {steps[3].active && <Summary func={selectStep} data={formData} />}
+    <div>
+      <MobileSidebar steps={steps} />
+      <div className="min-[500px]:my-5 h-auto min-[500px]:w-auto bg-white rounded-xl shadow-lg p-6 min-[500px]:p-10 md:p-5 md:pr-10 lg:pr-20 flex flex-col min-[500px]:flex-row gap-10 lg:gap-20 mx-5 max-[500px]:absolute max-[500px]:left-0 max-[500px]:top-24">
+        <Sidebar steps={steps} />
+
+        {steps[0].active && (
+          <PersonalInfo
+            func={selectStep}
+            data={formData}
+            setData={setFormData}
+          />
+        )}
+        {steps[1].active && (
+          <SelectYourPlan
+            func={selectStep}
+            data={formData}
+            setData={setFormData}
+          />
+        )}
+        {steps[2].active && (
+          <AddOnes func={selectStep} data={formData} setData={setFormData} />
+        )}
+        {steps[3].active && <Summary func={selectStep} data={formData} />}
+      </div>
     </div>
   );
 }

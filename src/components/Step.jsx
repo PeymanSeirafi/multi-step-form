@@ -2,8 +2,8 @@ import React from "react";
 
 function Step({ id, name, active }) {
   const isActive = !active
-    ? "rounded-full bg-transparent text-white border-2 w-12 h-12 flex items-center justify-center text-sm lg:text-base font-[500]"
-    : "rounded-full bg-[#bfe2fd] w-12 h-12 flex items-center justify-center text-sm lg:text-base font-[500]";
+    ? "rounded-full bg-transparent text-white border-2 w-10 h-10 min-[500px]:w-12 min-[500px]:h-12 flex items-center justify-center text-sm lg:text-base font-[500]"
+    : "rounded-full bg-[#bfe2fd] w-10 h-10 min-[500px]:w-12 min-[500px]:h-12 flex items-center justify-center text-sm lg:text-base font-[500]";
   return (
     <div className="flex gap-4 items-center">
       <div className={isActive}>{id}</div>
